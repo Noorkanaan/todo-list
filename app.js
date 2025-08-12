@@ -94,6 +94,50 @@ window.addEventListener('load', ()=>{
     }
     return;
   }
+  let appVerifier;
+async function ensureRecaptcha(mode='visible'){
+  if(window.recaptchaVerifier) { try { window.recaptchaVerifier.clear(); } catch(_){} }
+  window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+    size: mode === 'visible' ? 'normal' : 'invisible'
+  });
+  appVerifier = window.recaptchaVerifier;
+  if(mode==='visible'){ await appVerifier.render(); }
+}
+// استدعاء أولي مرئي:
+ensureRecaptcha('visible');
+
+qsel('sendOtp').onclick = async ()=>{
+  const phone = qsel('loginPhone').value.trim();
+  if(!phone) return alert('أدخلي رقم الهاتف');
+
+  try{
+    const confirmationResult = await auth.signInWithPhoneNumber(phone, appVerifier);
+    window._pending = {isSignup:false, phone, confirmationResult};
+    alert('أرسلنا الكود. أدخلي الكود ثم اضغطي "تأكيد".');
+  }catch(e){
+    console.error(e);
+    // إعادة تهيئة وإعادة المحاولة
+    await ensureRecaptcha('visible');
+    alert('تعذر إرسال الكود: '+e.message);
+  }
+};
+
+qsel('startSignUp').onclick = async ()=>{
+  const fullName = qsel('fullName').value.trim();
+  const phone = qsel('phone').value.trim();
+  const pageName = qsel('pageName').value.trim();
+  if(!fullName || !phone || !pageName) return alert('يرجى تعبئة جميع الحقول');
+
+  try{
+    const confirmationResult = await auth.signInWithPhoneNumber(phone, appVerifier);
+    window._pending = {isSignup:true, fullName, phone, pageName, confirmationResult};
+    alert('تم إرسال كود التحقق عبر SMS. أدخلي الكود في خانة تسجيل الدخول.');
+  }catch(e){
+    console.error(e);
+    await ensureRecaptcha('visible');
+    alert('تعذر إرسال الكود: '+e.message);
+  }
+};
 
   // ====== باقي الصفحات: تحقق من الجلسة ======
   auth.onAuthStateChanged(async (user)=>{
