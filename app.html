@@ -1,75 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>مهامي اليوم - منصة المندوبات</title>
-  <link rel="stylesheet" href="./styles.css"/>
-  
-  <!-- Firebase SDKs served by Firebase Hosting -->
-  <script defer src="/__/firebase/10.12.2/firebase-app-compat.js"></script>
-  <script defer src="/__/firebase/10.12.2/firebase-auth-compat.js"></script>
-  <script defer src="/__/firebase/10.12.2/firebase-firestore-compat.js"></script>
-  <!-- Initializes Firebase using your project configuration on Hosting -->
-  <script defer src="/__/firebase/init.js"></script>
-
-  <script defer src="./app.js"></script>
-</head>
-<body>
-  <header class="topbar">
-    <div class="brand">💗 منصة مهام المندوبات</div>
-    <nav>
-      <a href="./admin.html" id="adminLink" class="link hidden">لوحة المسؤول</a>
-      <span id="userInfo" class="pill"></span>
-      <button id="logoutBtn" class="btn-outline">تسجيل خروج</button>
-    </nav>
-  </header>
-
-  <main class="container">
-    <section class="card">
-      <h2>مهام اليوم (<span id="todayLabel"></span>)</h2>
-      <p class="muted">يُعرض اليوم الحالي فقط ضمن الفترة المسموح بها.</p>
-
-      <ul class="todo-list">
-        <li>
-          <label>
-            <input type="checkbox" id="task_morning" />
-            1) نشر صباحي (بوست/ريلز/ستوري)
-          </label>
-          <textarea id="note_morning" placeholder="رابط المنشور أو ملاحظة"></textarea>
-        </li>
-        <li>
-          <label>
-            <input type="checkbox" id="task_noon" />
-            2) نشر وسط اليوم
-          </label>
-          <textarea id="note_noon" placeholder="رابط المنشور أو ملاحظة"></textarea>
-        </li>
-        <li>
-          <label>
-            <input type="checkbox" id="task_evening" />
-            3) نشر مسائي
-          </label>
-          <textarea id="note_evening" placeholder="رابط المنشور أو ملاحظة"></textarea>
-        </li>
-      </ul>
-
-      <div class="actions">
-        <button id="saveNotes" class="btn">حفظ الملاحظات</button>
-      </div>
-
-      <div id="praise" class="praise hidden">أحسنتِ ❤ استمري 👍</div>
-    </section>
-
-    <section class="card">
-      <h3>نصائح لمندوبات النشر</h3>
-      <p id="tipText" class="tip"></p>
-    </section>
-
-    <section class="card">
-      <h3>سجل إنجازاتي</h3>
-      <ul id="history" class="history"></ul>
-    </section>
-  </main>
-</body>
-</html>

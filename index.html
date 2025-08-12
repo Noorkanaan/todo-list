@@ -1,45 +1,24 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>تسجيل الدخول - منصة مهام المندوبات</title>
-  <link rel="stylesheet" href="./styles.css"/>
-  
-  <!-- Firebase SDKs served by Firebase Hosting -->
-  <script defer src="/__/firebase/10.12.2/firebase-app-compat.js"></script>
-  <script defer src="/__/firebase/10.12.2/firebase-auth-compat.js"></script>
-  <script defer src="/__/firebase/10.12.2/firebase-firestore-compat.js"></script>
-  <!-- Initializes Firebase using your project configuration on Hosting -->
-  <script defer src="/__/firebase/init.js"></script>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pink-promoter-pulse</title>
+    <meta name="description" content="Lovable Generated Project" />
+    <meta name="author" content="Lovable" />
 
-  <script defer src="./app.js"></script>
-</head>
-<body class="login-body">
-  <div class="card">
-    <h1>منصة مهام المندوبات</h1>
-    <p class="muted">الفترة: 13/08/2025 → 13/09/2025</p>
+    <meta property="og:title" content="pink-promoter-pulse" />
+    <meta property="og:description" content="Lovable Generated Project" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
-    <div id="first-time-form" class="stack">
-      <h2>تسجيل أول مرة</h2>
-      <input id="fullName" placeholder="الاسم + اسم العائلة" />
-      <input id="phone" placeholder="رقم الهاتف (مثال: +9725xxxxxxx)" />
-      <input id="pageName" placeholder="اسم صفحة العمل على السوشيال" />
-      <button id="startSignUp">إنشاء حساب والتحقق بالهاتف</button>
-    </div>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  </head>
 
-    <hr/>
-
-    <div class="stack">
-      <h2>تسجيل الدخول</h2>
-      <input id="loginPhone" placeholder="رقم الهاتف (مثال: +9725xxxxxxx)" />
-      <div id="recaptcha-container"></div>
-      <button id="sendOtp">إرسال كود التحقق</button>
-      <input id="otpCode" placeholder="أدخل كود الـ OTP" />
-      <button id="verifyOtp">تأكيد الكود وتسجيل الدخول</button>
-    </div>
-
-    <p class="small muted">استخدامك للنظام يعني موافقتك على سياسة الخصوصية.</p>
-  </div>
-</body>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
