@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>لوحة التحكم - المسؤول</title>
+  <link rel="stylesheet" href="./styles.css"/>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script defer src="./admin.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">💗 لوحة التحكم</div>
+    <nav>
+      <a class="link" href="./app.html">واجهة المندوبات</a>
+      <button id="logoutBtn" class="btn-outline">خروج</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>نظرة عامة اليوم</h2>
+      <div class="grid-3">
+        <div class="stat"><div class="n" id="totalUsers">0</div><div class="t">إجمالي المندوبات</div></div>
+        <div class="stat"><div class="n" id="completedToday">0</div><div class="t">مهام منجزة اليوم</div></div>
+        <div class="stat"><div class="n" id="completionRate">0%</div><div class="t">نسبة الإنجاز اليوم</div></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>قائمة المندوبات</h3>
+      <table class="table" id="delegatesTable">
+        <thead><tr><th>الاسم</th><th>الهاتف</th><th>صفحة السوشيال</th><th>نقاط</th><th>إنجاز اليوم</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <div class="actions">
+        <button id="exportCsv" class="btn">تصدير CSV</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>الترتيب (أكثر نشاطًا)</h3>
+      <ol id="leaderboard" class="leaderboard"></ol>
+    </section>
+
+    <section class="card">
+      <h3>رسوم بيانية</h3>
+      <canvas id="dailyChart" height="120"></canvas>
+      <canvas id="weeklyChart" height="120" style="margin-top:24px;"></canvas>
+    </section>
+
+    <section class="card">
+      <h3>إدارة النصائح</h3>
+      <div class="grid-3">
+        <div>
+          <h4>نصائح صباحية</h4>
+          <textarea id="tips_morning" rows="6" placeholder="سطر لكل نصيحة"></textarea>
+        </div>
+        <div>
+          <h4>نصائح منتصف النهار</h4>
+          <textarea id="tips_noon" rows="6" placeholder="سطر لكل نصيحة"></textarea>
+        </div>
+        <div>
+          <h4>نصائح مسائية</h4>
+          <textarea id="tips_evening" rows="6" placeholder="سطر لكل نصيحة"></textarea>
+        </div>
+      </div>
+      <div class="actions">
+        <button id="saveTips" class="btn">حفظ النصائح</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

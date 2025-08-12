@@ -1,0 +1,45 @@
+:root{
+  --pink:#ff4fa3;
+  --pink-2:#ff7fbd;
+  --bg:#fff7fb;
+  --card:#ffffff;
+  --muted:#8b8b9a;
+  --text:#2b2b35;
+  --radius:16px;
+  --shadow:0 10px 30px rgba(255,79,163,.12);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family: "Tajawal",system-ui,-apple-system,Segoe UI,Roboto; background:var(--bg); color:var(--text);}
+.login-body{display:flex;min-height:100vh;align-items:center;justify-content:center;padding:20px}
+.container{max-width:1100px;margin:24px auto;padding:0 16px}
+.card{background:var(--card);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);margin-bottom:20px}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:#ffe7f3;position:sticky;top:0}
+.brand{font-weight:700;color:#e81a7e}
+nav .link{margin-inline:10px;text-decoration:none;color:#e81a7e}
+.pill{background:#fff;border:1px solid #ffd0e6;border-radius:999px;padding:6px 12px}
+.btn,.btn-outline{border:0;border-radius:12px;padding:10px 14px;cursor:pointer}
+.btn{background:var(--pink);color:#fff}
+.btn:hover{background:#e81a7e}
+.btn-outline{background:#fff;border:1px solid var(--pink);color:var(--pink)}
+.btn-outline:hover{background:#ffe7f3}
+input,textarea{width:100%;padding:12px;border-radius:12px;border:1px solid #ffd0e6;margin:6px 0;background:#fff}
+textarea{min-height:70px;resize:vertical}
+.stack>*+*{margin-top:10px}
+.muted{color:var(--muted)}
+.small{font-size:.9rem}
+hr{border:none;border-top:1px solid #ffe0ef;margin:16px 0}
+.todo-list{list-style:none;padding:0}
+.todo-list li{background:#fff8fd;border:1px solid #ffe0ef;margin:8px 0;padding:12px;border-radius:12px}
+.praise{margin-top:10px;background:#fff3f9;border-left:4px solid var(--pink);padding:10px;border-radius:8px}
+.hidden{display:none !important}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.stat{background:#fff8fe;border:1px solid #ffe1ef;border-radius:14px;padding:14px;text-align:center}
+.stat .n{font-size:1.6rem;font-weight:700;color:#e81a7e}
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{padding:10px;border-bottom:1px solid #ffe0ef}
+.leaderboard{padding-inline-start:22px}
+.tip{font-weight:600;color:#c0166d}
+@media (max-width:800px){
+  .grid-3{grid-template-columns:1fr}
+  .topbar{flex-wrap:wrap;gap:8px}
+}
