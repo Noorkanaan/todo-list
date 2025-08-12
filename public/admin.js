@@ -6,7 +6,9 @@ const firebaseConfig = {
   messagingSenderId: "SENDER_ID",
   appId: "APP_ID"
 };
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps || (firebase.apps && firebase.apps.length===0)) {
+  try { firebase.initializeApp(firebaseConfig); } catch(e){ console.warn('Using Hosting init config'); }
+}
 const auth = firebase.auth();
 const db = firebase.firestore();
 
